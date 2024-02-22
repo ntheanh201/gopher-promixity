@@ -1,0 +1,172 @@
+.wrapper.wrapper-lg {
+    width: calc(1140px + 30px);
+    position: relative;
+    padding: 0 15px;
+    margin: 0 auto;
+    max-width: 100%;
+}
+
+.landing-hero {
+    --heroPreviewMargin: 314px;
+    --heroSpacing: 58px;
+    position: relative;
+    padding: 30px 0 0;
+    z-index: 0;
+    text-align: center;
+    margin-bottom: var(--heroPreviewMargin);
+    color: var(--txtPrimaryColor);
+    /* background-color: #b8dbe4; */
+    background-position: center top;
+    margin-top: 100px;
+}
+
+.landing-hero .hero-preview {
+    position: relative;
+    display: block;
+    width: 100%;
+    text-align: center;
+    margin: 0 auto calc(-1 * var(--heroPreviewMargin));
+}
+.landing-hero .hero-preview .preview {
+    --lgRadius: 12px;
+    position: relative;
+    z-index: 1;
+    display: inline-block;
+    vertical-align: top;
+    height: auto;
+    max-width: 100%;
+    margin: 0 auto;
+    border-radius: var(--lgRadius);
+    background: #b8dbe4;
+    border: 2px solid var(--primaryColor);
+    -webkit-user-select: none;
+    user-select: none;
+    width: 1106px;
+    height: 626px;
+}
+.landing-hero .hero-preview .content {
+    position: absolute;
+    z-index: 2;
+    left: 50%;
+    top: 50%;
+    transform: translate(-50%, -50%);
+}
+.landing-hero .hero-preview .gopher-proximity-hover {
+    position: absolute;
+    left: 10px;
+    top: -75px;
+    z-index: 3;
+    width: 90px;
+    height: 90px;
+    -webkit-user-select: none;
+    user-select: none;
+    background: transparent;
+    transition: transform 0.4s;
+}
+.landing-hero .hero-preview .gopher-proximity-hover:hover {
+    transform: scale(1.5);
+}
+.landing-hero .hero-preview .gopher-proximity-hover:hover ~ .gopher {
+    transform: translateY(30px);
+}
+@keyframes gopherEntrance {
+    to {
+        top: -64px;
+    }
+}
+.landing-hero .hero-preview .gopher {
+    position: absolute;
+    z-index: 0;
+    left: 50px;
+    top: -65px;
+    background: none;
+    -webkit-user-select: none;
+    user-select: none;
+    pointer-events: none;
+    transition: transform 0.3s;
+}
+.loaded .landing-hero .hero-preview .gopher {
+    animation: gopherEntrance 0.6s forwards;
+}
+.landing-hero .hero-preview .gopher .eye {
+    --baseAnimationSpeed: .15s;
+    position: absolute;
+    bottom: 3px;
+    right: 2px;
+    display: block;
+    width: 17px;
+    height: 17px;
+    border-radius: 50%;
+    transition: bottom var(--baseAnimationSpeed);
+    transform: rotate(30deg);
+}
+.landing-hero .hero-preview .gopher .eye:before {
+    --primaryColor: #16161a;
+    content: "";
+    position: absolute;
+    display: block;
+    z-index: 0;
+    top: 1px;
+    left: 5px;
+    width: 7px;
+    height: 7px;
+    border-radius: 50%;
+    background: var(--primaryColor);
+}
+.landing-hero .hero-preview .gopher .eye:after {
+    content: "";
+    position: absolute;
+    display: block;
+    z-index: 1;
+    top: 2px;
+    left: 9px;
+    width: 1.5px;
+    height: 1.5px;
+    background: #fff;
+    border-radius: 50%;
+}
+.landing-hero .hero-preview .gopher .eye-socket {
+    position: absolute;
+    display: block;
+    border-radius: 50%;
+    background: #fff;
+}
+.landing-hero .hero-preview .gopher .eye-socket.left {
+    left: 18px;
+    top: 18px;
+    width: 23px;
+    height: 25px;
+}
+.landing-hero .hero-preview .gopher .eye-socket.right {
+    left: auto;
+    right: 3px;
+    top: 21px;
+    width: 16px;
+    height: 21px;
+    border-radius: 14px 100% 15px;
+}
+.landing-hero .hero-preview .gopher .eye-socket.right .eye {
+    right: 0;
+}
+@media only screen and (max-width: 800px) {
+    .landing-hero {
+        --heroPreviewMargin: 150px;
+    }
+    .landing-hero .hero-preview .gopher {
+        top: -34px !important;
+        animation: none !important;
+    }
+}
+@media only screen and (max-width: 640px) {
+    .landing-hero {
+        --heroPreviewMargin: -10px;
+    }
+    .landing-hero .hero-preview .gopher {
+        display: none;
+    }
+}
+@media only screen and (max-width: 380px) {
+    .landing-hero .hero-preview {
+        margin-bottom: 0;
+    }
+}
